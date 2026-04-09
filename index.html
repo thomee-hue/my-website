@@ -13,6 +13,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">History</a>
             <a href="contact.html">Contact</a>
+            <a href="materialize.html">Materialize</a>
         </nav>
     </header>
     <main>
@@ -65,10 +66,49 @@
                 </tr>
             </table>
         </section>
+        section>
+    <h2>Score Tracker</h2>
+    <p>Track your score hole by hole:</p>
+    <button onclick="changeScore(-1)">Birdie (-1)</button>
+    <span id="scoreDisplay">Score: 0</span>
+    <button onclick="changeScore(1)">Bogey (+1)</button>
+    <button onclick="resetScore()">Reset</button>
+</section>
+<section>
+    <h2>Masters Trivia</h2>
+    <p>What year was the first Masters played?</p>
+    <input type="text" id="quizAnswer" placeholder="Type your answer...">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="quizResult"></p>
+</section>
     </main>
 
     <footer>
         <p>Created by Elliot Thome, Masters Golf Website Project</p>
     </footer>
+    <img src="masters.jpg" alt="Masters Golf Tournament" class="masters-image">
+<script>
+    let score = 0;
+
+    function changeScore(amount) {
+        score += amount;
+        document.getElementById("scoreDisplay").textContent = "Score: " + score;
+    }
+
+    function resetScore() {
+        score = 0;
+        document.getElementById("scoreDisplay").textContent = "Score: 0";
+    }
+function checkAnswer() {
+    let answer = document.getElementById("quizAnswer").value;
+    let result = document.getElementById("quizResult");
+    if (answer === "1934") {
+        result.textContent = "Correct! The first Masters was in 1934.";
+        result.style.color = "green";
+    } else {
+        result.textContent = "Not quite, try again!";
+        result.style.color = "red";
+    }
+</script>
     </body>
     </html>
